@@ -11,7 +11,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class VyTrackVehicleHeadersStepDef {
 
@@ -55,5 +59,10 @@ public class VyTrackVehicleHeadersStepDef {
     @Then("user should see refresh button on the left side of Reset button")
     public void user_should_see_refresh_button_on_the_left_side_of_reset_button() {
         BrowserUtils.ifButtonOnTheLeft("Refresh", "Reset");
+
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
+        wait.until(ExpectedConditions.visibilityOf(vyTrackVehiclesPage.refreshBtn));
+        vyTrackVehiclesPage.refreshBtn.click();
+
     }
 }
