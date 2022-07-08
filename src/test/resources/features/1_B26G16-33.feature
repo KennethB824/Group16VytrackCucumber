@@ -20,3 +20,10 @@ Feature: User should be able to see Export Grid dropdown, Refresh, Reset and Gri
 	@B26G16-37 @B26G16-30
 	Scenario: Refresh button should be on the left side of Reset button
 		Then user should see refresh button on the left side of Reset button
+
+
+	#User should be able to click reset button
+	@B26G16-36 @B26G16-30
+	Scenario: Reset button
+		When user clicks on reset button
+		Then user can see the page is reset
