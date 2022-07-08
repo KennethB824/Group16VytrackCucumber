@@ -60,9 +60,23 @@ public class VyTrackVehicleHeadersStepDef {
     public void user_should_see_refresh_button_on_the_left_side_of_reset_button() {
         BrowserUtils.ifButtonOnTheLeft("Refresh", "Reset");
 
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
         wait.until(ExpectedConditions.visibilityOf(vyTrackVehiclesPage.refreshBtn));
         vyTrackVehiclesPage.refreshBtn.click();
 
     }
-}
+        @When("user clicks on refresh button")
+        public void user_clicks_on_refresh_button() {
+            WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
+            wait.until(ExpectedConditions.visibilityOf(vyTrackVehiclesPage.refreshBtn));
+
+            vyTrackVehiclesPage.refreshBtn.click();
+        }
+        @Then("page is refreshed")
+        public void page_is_refreshed() {
+            BrowserUtils.waitForUrl("Car");
+            Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("Car"));
+        }
+
+    }
+
