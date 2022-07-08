@@ -60,5 +60,10 @@ public class BrowserUtils {
         return check;
     }
 
+    public static void waitForClickable(WebElement element){
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
 }
 
