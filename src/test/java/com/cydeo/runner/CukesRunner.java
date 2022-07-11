@@ -11,9 +11,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = "html:target/cucumber-report.html",
         features = "src/test/resources/features" ,
-        glue = "src/test/java/com/cydeo/step_definitions",
-        dryRun = true,
-        tags = "@wip"
+        glue = "com/cydeo/step_definitions",
+        dryRun =false,
+        tags = "@B26G16-34"
 )
 
 public class CukesRunner {
