@@ -11,9 +11,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.interactions.Actions;
 
-import javax.swing.*;
-
-public class SeeAllVehilceServiceLogs {
+public class SeeAllVehilceServiceLogsStepDef {
     VyTrackLoginPage loginPage = new VyTrackLoginPage();
     Actions action = new Actions (Driver.getDriver());
     VyTrackBasePage base = new VyTrackBasePage();
