@@ -18,6 +18,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 
 public class VyTrackVehicleHeadersStepDef {
 
@@ -82,10 +84,6 @@ public class VyTrackVehicleHeadersStepDef {
             Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("Car"));
         }
 
-    }
-
-    }
-
 
     @When("user clicks on reset button")
     public void user_clicks_on_reset_button() {
@@ -94,7 +92,7 @@ public class VyTrackVehicleHeadersStepDef {
 
         vyTrackVehiclesPage.gridSettingsBtn.click();
 
-        List<WebElement>list =  Driver.getDriver().findElements(By.xpath("//tr[@class='renderable']"));
+        List<WebElement> list =  Driver.getDriver().findElements(By.xpath("//tr[@class='renderable']"));
 
         int numberOne = list.size();
 
@@ -122,7 +120,5 @@ public class VyTrackVehicleHeadersStepDef {
     public void user_can_see_the_page_is_reset() {
 
 
-
     }
-
 }
