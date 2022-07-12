@@ -48,7 +48,6 @@ public class VyTrackVehicleHeadersStepDef {
     }
     @When("user hovers over Fleet module")
     public void user_hovers_over_fleet_module() {
-
         action.moveToElement(vyTrackVehiclesPage.fleetBtn).perform();
     }
     @When("user clicks on Vehicle button")
@@ -62,29 +61,28 @@ public class VyTrackVehicleHeadersStepDef {
         BrowserUtils.waitForUrl("Car");
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("Car"));
     }
+
+    //Kenneth's scenario
     @Then("user should see refresh button on the left side of Reset button")
     public void user_should_see_refresh_button_on_the_left_side_of_reset_button() {
         BrowserUtils.ifButtonOnTheLeft("Refresh", "Reset");
 
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-        wait.until(ExpectedConditions.visibilityOf(vyTrackVehiclesPage.refreshBtn));
-        vyTrackVehiclesPage.refreshBtn.click();
-
     }
-        @When("user clicks on refresh button")
-        public void user_clicks_on_refresh_button() {
-            WebDriverWait wait = new WebDriverWait(Driver.getDriver(),10);
-            wait.until(ExpectedConditions.visibilityOf(vyTrackVehiclesPage.refreshBtn));
 
-            vyTrackVehiclesPage.refreshBtn.click();
-        }
-        @Then("page is refreshed")
-        public void page_is_refreshed() {
-            BrowserUtils.waitForUrl("Car");
-            Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("Car"));
-        }
+    //Larisa's scenario
+    @When("user clicks on refresh button")
+    public void user_clicks_on_refresh_button() {
+        BrowserUtils.waitForVisibilityOf(vyTrackVehiclesPage.refreshBtn);
 
+        vyTrackVehiclesPage.refreshBtn.click();
+    }
+    @Then("page is refreshed")
+    public void page_is_refreshed() {
+        BrowserUtils.waitForUrl("Car");
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("Car"));
+    }
 
+    //Inga's scenario
     @When("user clicks on reset button")
     public void user_clicks_on_reset_button() {
 
@@ -115,10 +113,14 @@ public class VyTrackVehicleHeadersStepDef {
 
         Assert.assertEquals(numberOne, numberTwo);
     }
-
     @Then("user can see the page is reset")
     public void user_can_see_the_page_is_reset() {
 
+    }
+
+    //Stephanie's scenario
+    @Then("user sees Export Grid button on the left of the page")
+    public void user_sees_export_grid_button_on_the_left_of_the_page() {
 
     }
 }
