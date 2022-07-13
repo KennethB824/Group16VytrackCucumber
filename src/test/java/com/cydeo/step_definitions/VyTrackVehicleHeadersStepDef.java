@@ -123,4 +123,16 @@ public class VyTrackVehicleHeadersStepDef {
     public void user_sees_export_grid_button_on_the_left_of_the_page() {
 
     }
+    @When("user clicks on Export Grid dropdown")
+    public void user_clicks_on_export_grid_dropdown() {
+
+        vyTrackVehiclesPage.exportGridBtn.click();
+    }
+
+    @Then("dropdown options should be visible")
+    public void dropdown_options_should_be_visible() {
+Assert.assertTrue(vyTrackVehiclesPage.csvBtn.isDisplayed());
+Assert.assertTrue(vyTrackVehiclesPage.xlsxBtn.isDisplayed());
+    }
+
 }
