@@ -123,4 +123,33 @@ public class VyTrackVehicleHeadersStepDef {
     public void user_sees_export_grid_button_on_the_left_of_the_page() {
 
     }
+    @When("user clicks on Export Grid dropdown")
+    public void user_clicks_on_export_grid_dropdown() {
+
+        vyTrackVehiclesPage.exportGridBtn.click();
+    }
+
+    @Then("dropdown options should be visible")
+    public void dropdown_options_should_be_visible() {
+Assert.assertTrue(vyTrackVehiclesPage.csvBtn.isDisplayed());
+Assert.assertTrue(vyTrackVehiclesPage.xlsxBtn.isDisplayed());
+    }
+
+    //Fatih's scenario
+
+    @When("user click on the Grid Settings button")
+    public void user_click_on_the_grid_settings_button() {
+        wait.until(ExpectedConditions.invisibilityOf(Driver.getDriver().findElement(By.xpath("//body[contains(@class,'loading')]"))));
+        vyTrackVehiclesPage.gridSettingsBtn.click();
+    }
+    @Then("user can see the drop down menu")
+    public void user_can_see_the_drop_down_menu() {
+
+        WebElement dropdown= Driver.getDriver().findElement(By.xpath("//div[@class=\"dropdown-menu\"]"));
+        wait.until(ExpectedConditions.visibilityOf(dropdown));
+
+        Assert.assertTrue(dropdown.isDisplayed());
+
+    }
+
 }

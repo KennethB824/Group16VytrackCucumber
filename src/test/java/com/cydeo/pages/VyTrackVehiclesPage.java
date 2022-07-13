@@ -26,4 +26,9 @@ public class VyTrackVehiclesPage extends VyTrackBasePage{
     @FindBy(xpath = "//div[@class='pull-right grid-toolbar-tools']//a[contains(@title,'Grid')]")
     public WebElement gridSettingsBtn;
 
+    @FindBy(xpath="//a[@title='CSV']")
+    public WebElement csvBtn;
+
+    @FindBy(xpath="//a[@title='XLSX']")
+    public WebElement xlsxBtn;
 }
